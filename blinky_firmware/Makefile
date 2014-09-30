@@ -12,7 +12,7 @@ COMMON =../..
 # Branches off of the home path
 STM_LIB = crazyflie-firmware/lib/STM32F10x_StdPeriph_Driver
 CM3 = crazyflie-firmware/lib/CMSIS/Core/CM3
-BLINKY = /ELEC424-Lab03_Blinky/blinky_firmware
+BLINKY = ELEC424-Lab03_Blinky/blinky_firmware
 
 # Additional branches 
 STARTUP = startup/gcc

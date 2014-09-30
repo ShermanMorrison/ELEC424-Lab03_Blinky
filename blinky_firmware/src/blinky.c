@@ -1,4 +1,3 @@
-
 #include <stm32f10x_gpio.h>
 #include <stm32f10x_tim.h>
 #include <stm32f10x_rcc.h>
@@ -7,11 +6,10 @@
 
 void InitializeLEDs()
 {
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-
+    RCC_APB1PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
     GPIO_InitTypeDef gpioStructure;
     gpioStructure.GPIO_Pin = GPIO_Pin_5;
-    gpioStructure.GPIO_Mode = GPIO_Mode_OUT_OD;
+    gpioStructure.GPIO_Mode = GPIO_Mode_Out_OD;
     gpioStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &gpioStructure);
 
@@ -40,7 +38,7 @@ int main()
     while(1);
 }
 
-int timerInterrupt
+int timerInterrupt()
 {
     int timerValue = TIM_GetCounter(TIM2);
     if (timerValue == 250)
