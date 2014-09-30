@@ -13,7 +13,7 @@ void InitializeLEDs()
     gpioStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &gpioStructure);
 
-    GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_RESET);
+    GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_SET);
 }
 
 void InitializeTimer()
