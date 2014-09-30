@@ -7,13 +7,15 @@
 void InitializeLEDs()
 {
     RCC_APB1PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+
     GPIO_InitTypeDef gpioStructure;
     gpioStructure.GPIO_Pin = GPIO_Pin_5;
     gpioStructure.GPIO_Mode = GPIO_Mode_Out_OD;
     gpioStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &gpioStructure);
 
-    GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_SET);
+	GPIO_SetBits((GPIO_TypeDef &) gpioStructure, (uint16_t) 0x0020);
+    //GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_SET);
 }
 
 void InitializeTimer()
@@ -32,7 +34,7 @@ void InitializeTimer()
 
 int main()
 {
-    InitializeLEDs();
+    //InitializeLEDs();
     InitializeTimer();
 
     while(1);
