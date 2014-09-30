@@ -1,11 +1,26 @@
 Lab03: Blinky
-<PUT NAMES HERE>
+Chase E Stewart, Jonathan Wilson
 
 Part 1: 6
 
 Q1. What is the main role of the linker script? 
 
+The linker script lets the compiler know how to budget the different
+kinds of memory to be used in the program and where the locations of
+these memory parts are. It starts by telling the compiler which program
+to run at initialization, then it tells the beginning of the stack, the
+size to budget for stack and heap, and then specifically the sizes of 
+the different memory areas.
+
+
 Q2. What does the ENTRY command in the linker script do?
+
+The Entry command tells the compiler which function should be run first
+at the start of the program. If it were 'main', the program would begin
+by running the 'main' function. In the case of the example, however, 
+the entry function is 'ENTRY( Reset_Handler )', which causes the 
+program to start with the function 'Reset_Handler' instead.
+
 
 Q3. Where in the STM memory map are the three ELF segments placed (i.e. flash, sram, system memory)?
 
