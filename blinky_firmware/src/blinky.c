@@ -5,14 +5,9 @@
 
 int led_state = 0;
 
-void InitializeRCCCommands()
-{
-    
-}
 void InitializeLEDs()
 {
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-
+    RCC_APB1PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
     GPIO_InitTypeDef gpioStructure;
     gpioStructure.GPIO_Pin = GPIO_Pin_5;
     gpioStructure.GPIO_Mode = GPIO_Mode_Out_PP;
