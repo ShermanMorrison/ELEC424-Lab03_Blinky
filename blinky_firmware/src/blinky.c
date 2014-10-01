@@ -5,12 +5,12 @@
 */
 void InitializeLEDs()
 {
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); // ??
     GPIO_InitTypeDef gpioStructure;
     gpioStructure.GPIO_Pin = GPIO_Pin_5;
     gpioStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     gpioStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_Init(GPIOB, &gpioStructure);
+    GPIO_Init(GPIOB, &gpioStructure); // configure gpio pin 5
 }
 
 /*
@@ -19,7 +19,7 @@ void InitializeLEDs()
 void InitializeTimer()
 {
 
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE); // ?? 
     
     TIM_TimeBaseInitTypeDef timerInitStructure;
     timerInitStructure.TIM_Prescaler = 4000;
@@ -27,9 +27,9 @@ void InitializeTimer()
     timerInitStructure.TIM_Period = 1000;
     timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
     timerInitStructure.TIM_RepetitionCounter = 0;
-    TIM_TimeBaseInit(TIM4, &timerInitStructure);
-    TIM_Cmd(TIM4, ENABLE);
-    TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+    TIM_TimeBaseInit(TIM4, &timerInitStructure); // configure timer 4
+    TIM_Cmd(TIM4, ENABLE); // enable the counter for timer 4
+    TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE); // enable interrupt on timer 4
 }
 
 
@@ -43,7 +43,7 @@ void InitializeInterrupt()
     nvic.NVIC_IRQChannelPreemptionPriority = 0;
     nvic.NVIC_IRQChannelSubPriority = 1;
     nvic.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&nvic);
+    NVIC_Init(&nvic); // configure the timer 4 interrupt
 }
 
 /*
