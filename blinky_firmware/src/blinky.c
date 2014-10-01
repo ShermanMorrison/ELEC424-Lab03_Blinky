@@ -1,7 +1,7 @@
 #include <blinky.h>
 
 /*
-* Initialize GPIO_Pin_5 as a pullup GPIOB pin.
+* Initialize GPIOB's  GPIO_Pin_5 as a push-pull GPIOB pin.
 */
 void InitializeLEDs()
 {
