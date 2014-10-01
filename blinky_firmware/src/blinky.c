@@ -7,7 +7,7 @@ int led_state = 0;
 
 void InitializeLEDs()
 {
-    RCC_APB1PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
     GPIO_InitTypeDef gpioStructure;
     gpioStructure.GPIO_Pin = GPIO_Pin_5;
     gpioStructure.GPIO_Mode = GPIO_Mode_Out_PP;
@@ -53,7 +53,6 @@ void TIM4_IRQHandler()
 
 int main()
 {
-    InitializeRCCCommands();
     InitializeLEDs();
     InitializeTimer();
     InitializeInterrupt();
