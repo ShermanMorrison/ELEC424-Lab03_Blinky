@@ -41,7 +41,7 @@
 /* include "stm32f10x_iwdg.h" */
 /* #include "stm32f10x_pwr.h" */
 
-#include "stm32f10x_rcc.h" /* this header file controls the RC clock. This function drives the clocks that are used to control the crazyflie*/
+#include "stm32f10x_rcc.h" /* this header file controls the reset and clock control. This rcc code drives the clocks that are used to control the crazyflie*/
 
 /* #include "stm32f10x_rtc.h" */
 /* #include "stm32f10x_sdio.h" */

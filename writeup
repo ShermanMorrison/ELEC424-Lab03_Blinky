@@ -24,8 +24,22 @@ program to start with the function 'Reset_Handler' instead.
 
 Q3. Where in the STM memory map are the three ELF segments placed (i.e. flash, sram, system memory)?
 
+from the .ld file, the three ELF statements are in these locations
+  FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 128K
+  RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 20K
+  MEMORY_B1 (rx)  : ORIGIN = 0x60000000, LENGTH = 0K
+
+
 Part 2: 4
 
 Q4. What role does the startup file (startup_stm32f10x_md.s) play?
 
+the startup file sets the initial stack pointer, sets the program
+counter equal to the reset handler, sets the vector table entries,
+and branches to main in the C library.
+
+
 Q5. Can you get the red LED to flash? Why is this harder? This is a good example of some of the challenges you will face with embedded devices and why the reference manual/STM-examples are key.
+
+
+
