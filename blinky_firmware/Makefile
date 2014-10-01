@@ -1,6 +1,7 @@
 # Makefile for Lab03-Blinky, ELEC424 Fall 2014
 # Authors: Jie Liao, Abeer Javed, Steven Arroyo. Rice University 
 # Derived from the crazyflie-firmware Makefile
+
 # Modified by Chase E Stewart and Jonathan Wilson
 
 
@@ -14,7 +15,7 @@ STM_LIB = crazyflie-firmware/lib/STM32F10x_StdPeriph_Driver
 CM3 = crazyflie-firmware/lib/CMSIS/Core/CM3
 BLINKY = ELEC424-Lab03_Blinky/blinky_firmware
 
-# Additional branches 
+# Additional directory shortcuts 
 STARTUP = startup/gcc
 CONFIG = crazyflie-firmware/config
 LINKER_SCRIPT = linker_script
@@ -29,6 +30,7 @@ PROCESSOR = -mcpu=cortex-m3 -mthumb
 INCLUDE = -I  $(COMMON)/$(STM_LIB)/inc 
 INCLUDE += -I $(COMMON)/$(CM3) 
 INCLUDE += -I $(COMMON)/$(CM3)/$(STARTUP) 
+INCLUDE += -I $(COMMON)/$(BLINKY)/inc
 
 # C Files included for this function
 CFILES = $(COMMON)/$(STM_LIB)/src/stm32f10x_gpio.c

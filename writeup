@@ -41,5 +41,6 @@ and branches to main in the C library.
 
 Q5. Can you get the red LED to flash? Why is this harder? This is a good example of some of the challenges you will face with embedded devices and why the reference manual/STM-examples are key.
 
+In this case the red LED is connected to PB4, which is also the JNTRST pin, which is the JTAG reset pin. As we use JTAG to communicate with the crazyflie, sending a high/enable to the pin with it connected would cause problematic resetting on the crazyflie.
 
 
