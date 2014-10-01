@@ -1,5 +1,8 @@
 #include <blinky.h>
 
+/*
+* Initialize GPIO_Pin_5 as a pullup GPIOB pin.
+*/
 void InitializeLEDs()
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
@@ -10,6 +13,9 @@ void InitializeLEDs()
     GPIO_Init(GPIOB, &gpioStructure);
 }
 
+/*
+* Enable timer and set to interrupt.
+*/
 void InitializeTimer()
 {
 
@@ -26,6 +32,10 @@ void InitializeTimer()
     TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
 }
 
+
+/*
+* Enable and initialize interrupt on timer 4
+*/
 void InitializeInterrupt()
 {
     NVIC_InitTypeDef nvic;
@@ -36,8 +46,12 @@ void InitializeInterrupt()
     NVIC_Init(&nvic);
 }
 
+/*
+* Interrupt Callback
+*/
 void TIM4_IRQHandler()
 {
+	// If interrupt set, reset interrupt and write the toggled led state
     if (TIM_GetITStatus(TIM4, TIM_IT_Update)!= RESET)
     {
         TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
@@ -46,6 +60,9 @@ void TIM4_IRQHandler()
     }
 }
 
+/*
+* Main Function
+*/
 int main()
 {
     InitializeLEDs();
